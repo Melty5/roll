@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 import random
 
+
+
+
 origin_roll_list = ["TOP","JG","MID","ADC","SUP"]
 
 st.title("LOL自動ロール振り分け")
@@ -21,9 +24,11 @@ if st.button("振り分け"):
         n = len(player_list)
         roll_list = random.sample(origin_roll_list,n)
         roll_list = sorted(roll_list,key=origin_roll_list.index)
-        col_list=st.columns(n)
+        #col_list=st.columns(n)
         for i in range(n):
-            col_list[i].metric(label=roll_list[i],value=player_list[i])
+            st.write(f"""
+            ## {roll_list[i]}：{player_list[i]}
+            """)
     except:
         player_list = []
         player_list=players.splitlines()
@@ -32,6 +37,8 @@ if st.button("振り分け"):
         n = len(player_list)
         roll_list = random.sample(origin_roll_list,n)
         roll_list = sorted(roll_list,key=origin_roll_list.index)
-        col_list=st.columns(n)
+        #col_list=st.columns(n)
         for i in range(n):
-            col_list[i].metric(label=roll_list[i],value=player_list[i])
+            st.write(f"""
+            ## {roll_list[i]}：{player_list[i]}
+            """)
